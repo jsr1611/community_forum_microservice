@@ -34,7 +34,10 @@ public class ThreadResponse {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "thread_id", nullable = false)
     private Thread thread;
-    private Long userId;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     private LocalDateTime createdAt;
 
 }

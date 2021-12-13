@@ -27,14 +27,17 @@ import java.util.List;
 public class Thread {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+//    @Column(name = "id")
     private Long id;
     private String title;
     private String content;
 
     @OneToMany(mappedBy = "thread", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<ThreadResponse> responses;
-    private Long userId;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     private LocalDateTime createdAt;
 
 }
