@@ -38,6 +38,7 @@ public class Thread {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    private LocalDateTime createdAt;
+    private String createdAt;
+    private String category;
 
 }

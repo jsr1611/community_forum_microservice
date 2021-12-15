@@ -28,7 +28,7 @@ public class ThreadResponse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String text;
+    private String content;
 
     //reference: https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=rorean&logNo=221593255071
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -38,6 +38,6 @@ public class ThreadResponse {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    private LocalDateTime createdAt;
+    private String createdAt;
 
 }
