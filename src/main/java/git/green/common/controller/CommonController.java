@@ -51,10 +51,17 @@ public class CommonController {
     @GetMapping("/threads")
     public List<Thread> getThreads(@RequestParam String category){
         System.out.println("getThreads() was called"  + " printed at " + formatter.format(new Date()));
+        if(category.equals("All") || category.isEmpty()){
+            return threadRepo.findAll();
+        }
         return threadRepo.findByCategory(category);
     }
 
-
+    @GetMapping("/threads/keyword")
+    public List<Thread> getThreadsByKeyword(@RequestParam String keyword){
+        System.out.println("getThreads(keyword) was called"  + " printed at " + formatter.format(new Date()));
+        return threadRepo.findByContentContaining(keyword);
+    }
 
     @PostMapping("/createthread")
     public Thread createThread(@RequestParam String title, @RequestParam String content, @RequestParam String category){

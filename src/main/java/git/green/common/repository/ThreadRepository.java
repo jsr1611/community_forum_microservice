@@ -17,4 +17,6 @@ import java.util.List;
 public interface ThreadRepository extends JpaRepository<Thread, Long> {
 
     List<Thread> findByCategory(String category);
+
+    List<Thread> findByContentContaining(String keyword);
 }
